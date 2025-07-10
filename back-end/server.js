@@ -1,0 +1,47 @@
+import express from 'express'
+
+import cors from 'cors'
+import 'dotenv/config'
+
+import connectDB from './config/mongodb.js'
+import connectCloudinary from './config/cloudinary.js'
+import adminRouter from './routes/adminRoute.js'
+import dotenv from 'dotenv'
+import doctorRouter from './routes/doctorRoute.js'
+import userRouter from './routes/userRoute.js'
+
+
+
+// app config
+const app = express()
+const port = process.env.PORT || 3000
+connectDB()
+connectCloudinary()
+dotenv.config()
+
+
+// middlewares 
+app.use(express.json())
+app.use(cors()) // it allow to connect frontend and backend
+
+
+// api endpoints
+app.use('/api/admin', adminRouter)
+app.use('/api/doctor', doctorRouter)
+
+//user api endpoints
+app.use('/api/user', userRouter)
+
+// localhost:3000/api/admin/add-doctor
+
+
+
+
+
+app.get('/', (req, res)=>{
+    res.send('API IS WORKING WITH NODEMON')
+})
+
+app.listen(port, ()=>{
+    console.log('SERVER STARTED AT PORT :',port)
+})
