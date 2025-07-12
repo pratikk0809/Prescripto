@@ -23,7 +23,7 @@ dotenv.config()
 // middlewares 
 app.use(express.json())
 app.use(cors({
-  origin: ['https://prescripto-admin-ru62.onrender.com', 'https://prescripto-frontend-XYZ.onrender.com'], // add all frontend origins
+  origin: ['https://prescripto-admin-ru62.onrender.com', 'https://prescripto-front-end-5a0i.onrender.com'], // add all frontend origins
   credentials: true // if you're using cookies or auth headers
 }));
 
