@@ -22,7 +22,23 @@ dotenv.config()
 
 // middlewares 
 app.use(express.json())
-app.use(cors());
+
+const allowedOrigins = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',')
+    : [];
+
+app.use(cors({
+    origin: function(origin, callback) {
+        // allow requests with no origin (like mobile apps, curl, etc.)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            return callback(null, true);
+        } else {
+            return callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+}));
 
 // api endpoints
 app.use('/api/admin', adminRouter)
