@@ -21,8 +21,7 @@ dotenv.config()
 
 
 // middlewares 
-// middlewares 
-app.use(express.json());
+app.use(express.json())
 app.use(cors({
   origin: [
     'https://prescripto-admin-ru62.onrender.com',
@@ -31,9 +30,6 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
-
-// Handle preflight requests
-app.options('*', cors());
 
 // api endpoints
 app.use('/api/admin', adminRouter)
