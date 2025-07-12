@@ -22,8 +22,10 @@ dotenv.config()
 
 // middlewares 
 app.use(express.json())
-app.use(cors()) // it allow to connect frontend and backend
-
+app.use(cors({
+  origin: ['https://prescripto-admin-ru62.onrender.com', 'https://prescripto-frontend-XYZ.onrender.com'], // add all frontend origins
+  credentials: true // if you're using cookies or auth headers
+}));
 
 // api endpoints
 app.use('/api/admin', adminRouter)
