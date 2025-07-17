@@ -62,7 +62,7 @@ const Navbar = () => {
                   Sign In / Up
                 </button>
                 <button
-                  onClick={() => window.open('http://localhost:5174', '_blank')}
+                  onClick={() => window.open('https://prescripto-plum.vercel.app/', '_blank')}
                   className='bg-indigo-800 text-white px-6 py-3 rounded-full font-light hidden md:block'
                 >
                   Admin/Doctor Login
