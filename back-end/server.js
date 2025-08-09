@@ -10,7 +10,11 @@ import adminRouter from './routes/adminRoute.js'
 import doctorRouter from './routes/doctorRoute.js'
 import userRouter from './routes/userRoute.js'
 
-
+const allowedOrigins = [
+  'https://prescripto-frontend-lime.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:5174'
+];
 
 // app config
 dotenv.config()
@@ -23,7 +27,10 @@ connectCloudinary()
 // middlewares 
 app.use(express.json())
 
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // if you use cookies/auth headers
+}));
 
 // api endpoints
 app.use('/api/admin', adminRouter)
