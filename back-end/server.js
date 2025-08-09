@@ -39,7 +39,7 @@ app.use('/api/user', userRouter)
 
 
 app.get('/', (req, res)=>{
-    res.send('API IS WORKING WITH NODEMON')
+    res.send('API IS WORKING WITH NODEMON ("PRESCRIPTO")')
 })
 
 app.listen(port, ()=>{
