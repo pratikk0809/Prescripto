@@ -11,9 +11,8 @@ import doctorRouter from './routes/doctorRoute.js'
 import userRouter from './routes/userRoute.js'
 
 const allowedOrigins = [
-  'https://prescripto-frontend-lime.vercel.app',
-  'http://localhost:5173',
-  'http://localhost:5174'
+  "http://localhost:5173/",
+  "http://localhost:5174/"
 ];
 
 // app config
@@ -27,10 +26,14 @@ connectCloudinary()
 // middlewares 
 app.use(express.json())
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true, // if you use cookies/auth headers
-}));
+
+// app.use(cors({
+//   origin: 'http://localhost:5174',
+//   methods: ['GET', 'POST', 'OPTIONS'],
+//   credentials: true
+// }));
+
+app.use(cors());
 
 // api endpoints
 app.use('/api/admin', adminRouter)
@@ -50,5 +53,5 @@ app.get('/', (req, res)=>{
 })
 
 app.listen(port, ()=>{
-    console.log('SERVER STARTED AT PORT :',port)
+    console.log('SERVER STARTED AT PORT :',3000)
 })
