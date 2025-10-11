@@ -21,7 +21,7 @@ Prescripto is a full-stack web application built using the MERN stack (MongoDB, 
 
 ## 🧰 Tech Stack
 
-- **Frontend**: React.js, React Router, Axios, Bootstrap/Tailwind (specify)
+- **Frontend**: React.js, React Router, Axios,Tailwind (specify)
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB with Mongoose
 - **Authentication**: JSON Web Tokens (JWT)
